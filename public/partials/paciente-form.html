@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <label for="dataNascimento" class="col-sm-2">Data Nascimento</label>
                                 <div class="col-sm-8">
-                                    <input type="date" class="form-control text-left" ng-model="vm.paciente.dataNascimento" id="dataNascimento">
+                                    <input type="date" class="form-control text-left" ng-model="vm.paciente.dataNascimento" value="{{ vm.paciente.dataNascimento | date: 'yyyy-MM-dd' }}" id="dataNascimento">
                                 </div>
                             </div>
 

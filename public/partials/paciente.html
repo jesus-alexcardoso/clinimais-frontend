@@ -32,7 +32,7 @@
                                 <tr ng-repeat="item in vm.itens | orderBy: 'nome + dataNascimento' | filter: vm.busca">
                                     <td>{{item.nome}}</td>
                                     <td>{{item.cpf}}</td>
-                                    <td>{{item.dataNascimento | date: 'dd/MM/yyyy'}}</td>
+                                    <td>{{item.dataNascimento | date: 'dd-MM-yyyy'}}</td>
                                     <td>
                                         <a type="button" class="btn btn-primary btn-sm" ng-href="{{'/paciente/' + item.id}}">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
