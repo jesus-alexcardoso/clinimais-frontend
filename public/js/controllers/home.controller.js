@@ -10,6 +10,7 @@
         var itemSelecionado = -1;
 
         vm.pacientesPage = pacientesPage;
+        vm.profissionaisPage = profissionaisPage;
 
         activate();
 
@@ -18,6 +19,10 @@
 
         function pacientesPage() {
             $location.path("/paciente");
+        }
+
+        function profissionaisPage() {
+            $location.path("/profissional");
         }
     }
 })();

@@ -1,0 +1,51 @@
+<div ng-controller="ProfissionalListController as vm">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h3>Cadastro de Profissionais</h3>
+                            </div>
+                            <div class="col-sm-4">
+                                <a class="btn btn-default pull-right btn-lg" href="profissional/new">
+                                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                    <span>Novo Profissional</span>
+                                </a>
+                            </div>
+                        </div>
+                        <form class="search" style="position: absolute; margin-top: -1%;">
+                            <input class="searchTerm" ng-model="vm.busca" placeholder="Pesquisar..." />
+                            <input class="searchButton" text="Buscar" type="submit" ng-click="vm.buscar()" />
+                        </form>
+                        <table class="table" style="margin-top: 3em">
+                            <thead>
+                                <tr>
+                                    <th style="width:50%">NOME</th>
+                                    <th style="width:25%">TIPO PROFISSIONAL</th>
+                                    <th style="width:25%">AÇÕES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in vm.itens | filter: vm.busca">
+                                    <td>{{item.nome}}</td>
+                                    <td>{{item.tipoProfissional}}</td>
+                                    <td>
+                                        <a type="button" class="btn btn-primary btn-sm" ng-href="{{'/profissional/' + item.id}}">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </a>
+
+                                        <a type="button" class="btn btn-primary btn-sm" confirmed-click="vm.remover(item)" ng-confirm-click="Deseja excluir o profissional?">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

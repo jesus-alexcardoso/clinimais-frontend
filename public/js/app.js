@@ -19,6 +19,17 @@ angular
             .when("/paciente/new", {
                 templateUrl: "partials/paciente-form.html",
             })
+
+            .when("/profissional", {
+                templateUrl: "partials/profissional.html",
+            })
+            .when("/profissional/:id", {
+                templateUrl: "partials/profissional-form.html",
+            })
+            .when("/profissional/new", {
+                templateUrl: "partials/profissional-form.html",
+            })
+
             .otherwise({
                 templateUrl: "partials/404.html",
             });
@@ -32,9 +43,6 @@ angular
             .when("/estado/new", {
                 templateUrl: "partials/estado-form.html",
             })
-            .otherwise({
-                templateUrl: "partials/404.html",
-            });
             */
     })
     .run(function($rootScope, $window) {
