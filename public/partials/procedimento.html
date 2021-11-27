@@ -1,0 +1,49 @@
+<div ng-controller="ProcedimentoListController as vm">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h3>Cadastro de Procedimentos</h3>
+                            </div>
+                            <div class="col-sm-4">
+                                <a class="btn btn-default pull-right btn-lg" href="procedimento/new">
+                                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                    <span>Novo Procedimento</span>
+                                </a>
+                            </div>
+                        </div>
+                        <form class="search" style="position: absolute; margin-top: -1%;">
+                            <input class="searchTerm" ng-model="vm.busca" placeholder="Pesquisar..." />
+                            <input class="searchButton" text="Buscar" type="submit" ng-click="vm.buscar()" />
+                        </form>
+                        <table class="table" style="margin-top: 3em">
+                            <thead>
+                                <tr>
+                                    <th style="width:75%">PROCEDIMENTO</th>
+                                    <th style="width:25%">AÇÕES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in vm.itens | orderBy: 'descricao' | filter: vm.busca">
+                                    <td>{{item.descricao}}</td>
+                                    <td>
+                                        <a type="button" class="btn btn-primary btn-sm" ng-href="{{'/procedimento/' + item.id}}">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </a>
+
+                                        <a type="button" class="btn btn-primary btn-sm" confirmed-click="vm.remover(item)" ng-confirm-click="Deseja excluir o procedimento?">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

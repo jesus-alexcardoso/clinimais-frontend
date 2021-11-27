@@ -11,6 +11,7 @@
 
         vm.pacientesPage = pacientesPage;
         vm.profissionaisPage = profissionaisPage;
+        vm.procedimentosPage = procedimentosPage;
 
         activate();
 
@@ -23,6 +24,10 @@
 
         function profissionaisPage() {
             $location.path("/profissional");
+        }
+
+        function procedimentosPage() {
+            $location.path("/procedimento");
         }
     }
 })();

@@ -30,6 +30,16 @@ angular
                 templateUrl: "partials/profissional-form.html",
             })
 
+            .when("/procedimento", {
+                templateUrl: "partials/procedimento.html",
+            })
+            .when("/procedimento/:id", {
+                templateUrl: "partials/procedimento-form.html",
+            })
+            .when("/procedimento/new", {
+                templateUrl: "partials/procedimento-form.html",
+            })            
+
             .otherwise({
                 templateUrl: "partials/404.html",
             });
