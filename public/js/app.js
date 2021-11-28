@@ -4,9 +4,14 @@ angular
         $locationProvider.html5Mode(true);
 
         $routeProvider
-            .when("/", {
-                templateUrl: "partials/home.html",
-            })
+        .when("/", {
+            templateUrl: "partials/login.html",
+            controller:"LoginController"
+        })
+        .when("/login", {
+            templateUrl: "partials/login.html",
+            controller:"LoginController"
+        })
             .when("/home", {
                 templateUrl: "partials/home.html",
             })
@@ -39,6 +44,10 @@ angular
             .when("/procedimento/new", {
                 templateUrl: "partials/procedimento-form.html",
             })            
+
+            .when("/agendamento", {
+                templateUrl: "partials/agendamentos.html"
+            })
 
             .otherwise({
                 templateUrl: "partials/404.html",
