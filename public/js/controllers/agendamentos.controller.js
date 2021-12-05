@@ -43,14 +43,14 @@
  
         function abrirNovoAgendamento() {
             vm.agendamento = {};
-            vm.agendamento.titulo = "Novo agendamento";
+            vm.agendamento.titulo = "teste";
             vm.agendamento.start = new Date();
             vm.agendamento.end = new Date();
         }
  
         $scope.abrirNovoAgendamentoCustom = function() {
             vm.agendamento = {};
-            vm.agendamento.titulo = "Novo agendamento customizado";
+            vm.agendamento.titulo = "";
             vm.agendamento.start = new Date();
             vm.agendamento.end = new Date();
             $scope.$apply();
@@ -59,7 +59,7 @@
  
         $scope.abrirNovoAgendamentoCalendarNew = function(start, end) {
             vm.agendamento = {};
-            vm.agendamento.titulo = "Novo agendamento";
+            vm.agendamento.titulo = "teste new pelo calendar";
  
             let data = new Date(start);
             data.setHours(data.getHours() + 3);
@@ -85,8 +85,8 @@
             vm.agendamento.end = dataend;
  
  
-            vm.agendamento.cliente = event.cliente;
-            vm.agendamento.servico = event.servico;
+            vm.agendamento.paciente = event.paciente;
+            //vm.agendamento.servico = event.servico;
             vm.agendamento.profissional = event.profissional;
  
             vm.agendamento.backgroundColor = event.backgroundColor;
@@ -234,9 +234,7 @@
 
             setTimeout(function(){ 
                 $("#alerta").alert('close');
-             }, 3000);
+             }, 3001);
         }
     }
 })();
- 
-

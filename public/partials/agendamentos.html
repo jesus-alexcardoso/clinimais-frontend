@@ -29,7 +29,13 @@
                     <div class="modal-body">
                         <form class="form-horizontal">
                             <div class="form-group">
-                                <label for="paciente" class="col-sm-3">Paciente</label>
+                                <label for="titulo" class="col-sm-2">Titulo</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control text-left" ng-model="vm.agendamento.titulo" id="nome">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="paciente" class="col-sm-2">Paciente</label>
                                 <div class="col-sm-8" ng-controller="PacienteListController as pacVm">
                                     <select name="paciente" ng-model="vm.agendamento.paciente._id" class="form-control" id="paciente">
                                         <option ng-repeat="item in pacVm.itens" value="{{item._id}}">{{item.nome}}
@@ -38,57 +44,38 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="dentista" class="col-sm-3">Dentista</label>
-                                <div class="col-sm-8" ng-controller="ProfissionalListController as profVm">
-                                    <select name="dentista" ng-model="vm.agendamento.profssional._id" class="form-control" id="dentista">
-                                        <option ng-repeat="item in profVm.itens" value="{{item._id}}">{{item.nome}}
-                                        </option>
+                                <label for="profissional" class="col-sm-2">Cor </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" ng-model="vm.agendamento.backgroundColor">
+                                        <option value="#4682B4">Azul</option>
+                                        <option value="#FFD700">Amarelo</option>
+                                        <option value="#363636">Cinza</option>
+                                        <option value="#FF8C00">Laranja</option>
+                                        <option value="#000000">Preto</option>
+                                        <option value="#8B008B">Roxo</option>
+                                        <option value="#FF00FF">Rosa</option>
+                                        <option value="#FF5733">Vermelho</option>
+                                        <option value="#32CD32">Verde</option>                                        
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="procedimento" class="col-sm-3">Procedimento</label>
-                                <div class="col-sm-8" ng-controller="ProcedimentoListController as procVm">
-                                    <select name="procedimento" ng-model="vm.agendamento.procedimento._id" class="form-control" id="procedimento">
-                                        <option ng-repeat="item in procVm.itens" value="{{item._id}}">{{item.descricao}}
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="start" class="col-sm-3">Inicio</label>
+                                <label for="start" class="col-sm-2">Inicio</label>
                                 <div class="col-sm-8">
                                     <input type="datetime-local" class="form-control text-left" ng-model="vm.agendamento.start" id="start">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="end" class="col-sm-3">Fim</label>
+                                <label for="end" class="col-sm-2">Fim</label>
                                 <div class="col-sm-8">
                                     <input type="datetime-local" class="form-control text-left" ng-model="vm.agendamento.end" id="end">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="situacao" class="col-sm-3">Situação</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control" ng-model="vm.agendamento.situacao">
-                                        <option value="ABERTA">Aberta</option>
-                                        <option value="EM_ANDAMENTO">Em atendimento</option>
-                                        <option value="FINALIZADA">Finalizada</option>
-                                        <option value="CANCELADA">Cancelada</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="observacao" class="col-sm-3">Observação</label>
-                                <div class="col-sm-8">
-                                    <input type="text" max="1000" class="form-control text-left" ng-model="vm.agendamento.observacao" id="observacao">
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal" confirmed-click="vm.excluirAgendamento()" ng-confirm-click="Deseja excluir a agendamento?">Excluir</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="button" class="btn btn-primary" ng-click="vm.salvar()" data-dismiss="modal">Salvar</button>
                     </div>
                 </div>
