@@ -28,8 +28,8 @@
         }
  
         function save(record) {
-            if (record._id) {
-                return $http.put(URL + '/' + record._id, record);
+            if (record.id) {
+                return $http.put(URL + '/' + record.id, record);
             } else {
                 return $http.post(URL, record);
             }

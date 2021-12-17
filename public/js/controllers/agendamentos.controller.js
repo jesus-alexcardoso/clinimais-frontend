@@ -42,6 +42,7 @@
         }
  
         function abrirNovoAgendamento() {
+            console.log("abrirNovaAgendamento");
             vm.agendamento = {};
             vm.agendamento.titulo = "teste";
             vm.agendamento.start = new Date();
@@ -53,6 +54,7 @@
             vm.agendamento.titulo = "";
             vm.agendamento.start = new Date();
             vm.agendamento.end = new Date();
+
             $scope.$apply();
             $('#exampleModal').modal('show');
         }
@@ -88,6 +90,9 @@
             vm.agendamento.paciente = event.paciente;
             //vm.agendamento.servico = event.servico;
             vm.agendamento.profissional = event.profissional;
+            vm.agendamento.procedimento = event.procedimento;
+            vm.agendamento.situacao = event.situacao;
+            vm.agendamento.observacao = event.observacao;
  
             vm.agendamento.backgroundColor = event.backgroundColor;
  
@@ -127,8 +132,8 @@
  
  
         async function salvar() {
-            vm.agendamento.empresa = $rootScope.currentEmpresa;
-            vm.agendamento.title = vm.agendamento.titulo;
+            //vm.agendamento.title = vm.agendamento.titulo;
+            vm.agendamento.title = vm.agendamento.paciente.nome + "-" + vm.agendamento.situacao;
  
             let data = new Date(vm.agendamento.start);
             data.setHours(data.getHours() - 3);
@@ -144,11 +149,11 @@
             await atualizaCalendarTeste();
         }
  
-        function excluirAgendamento() {
-            AgendamentoService.remove(vm.agendamento.id).success(function() {
+        async function excluirAgendamento() {
+            await AgendamentoService.remove(vm.agendamento.id).success(function() {
                 message("sucesso", "Agendamento excluido com sucesso!");
             });
-            atualizaCalendarTeste();
+            await atualizaCalendarTeste();
         }
  
  

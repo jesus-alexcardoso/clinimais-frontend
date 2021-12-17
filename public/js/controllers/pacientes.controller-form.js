@@ -37,7 +37,7 @@
         function salvar() {
             PacienteService.save(vm.paciente).success(function () {
                 $location.path("/paciente");
-                alert("Paciente cadastrado com sucesso!!");
+                alert("Paciente cadastrado com sucesso!!");                
             }).error(function (erro) {
                 alert(JSON.stringify(erro));
             });

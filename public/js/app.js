@@ -1,17 +1,17 @@
 angular
     .module("CliniMaisApp", ["ngRoute", "satellizer"])
-    .config(function($routeProvider, $locationProvider, $authProvider) {
+    .config(function ($routeProvider, $locationProvider, $authProvider) {
         $locationProvider.html5Mode(true);
 
         $routeProvider
-        .when("/", {
-            templateUrl: "partials/login.html",
-            controller:"LoginController"
-        })
-        .when("/login", {
-            templateUrl: "partials/login.html",
-            controller:"LoginController"
-        })
+            .when("/", {
+                templateUrl: "partials/login.html",
+                controller: "LoginController"
+            })
+            .when("/login", {
+                templateUrl: "partials/login.html",
+                controller: "LoginController"
+            })
             .when("/home", {
                 templateUrl: "partials/home.html",
             })
@@ -43,7 +43,7 @@ angular
             })
             .when("/procedimento/new", {
                 templateUrl: "partials/procedimento-form.html",
-            })            
+            })
 
             .when("/agendamento", {
                 templateUrl: "partials/agendamentos.html"
@@ -52,28 +52,28 @@ angular
             .otherwise({
                 templateUrl: "partials/404.html",
             });
-            /*
-            .when("/estado", {
-                templateUrl: "partials/estado.html",
-            })
-            .when("/estado/:id", {
-                templateUrl: "partials/estado-form.html",
-            })
-            .when("/estado/new", {
-                templateUrl: "partials/estado-form.html",
-            })
-            */
+        /*
+        .when("/estado", {
+            templateUrl: "partials/estado.html",
+        })
+        .when("/estado/:id", {
+            templateUrl: "partials/estado-form.html",
+        })
+        .when("/estado/new", {
+            templateUrl: "partials/estado-form.html",
+        })
+        */
     })
-    .run(function($rootScope, $window) {
-        
+    .run(function ($rootScope, $window) {
+
     })
     .directive("ngConfirmClick", [
-        function() {
+        function () {
             return {
-                link: function(scope, element, attr) {
+                link: function (scope, element, attr) {
                     var msg = attr.ngConfirmClick || "Are you sure?";
                     var clickAction = attr.confirmedClick;
-                    element.bind("click", function(event) {
+                    element.bind("click", function (event) {
                         if (window.confirm(msg)) {
                             scope.$eval(clickAction);
                         }
